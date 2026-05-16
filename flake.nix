@@ -42,7 +42,7 @@
       nixosModules.mcp-secure-exec-base = baseModule;
       nixosModules.mcp-secure-exec = { config, lib, pkgs, ... }: {
         imports = [ baseModule ];
-        services.mcp-secure-exec.package = lib.mkDefault (self.packages.${pkgs.system}.default);
+        services.mcp-secure-exec.package = lib.mkDefault (self.packages.${pkgs.stdenv.hostPlatform.system}.default);
       };
 
       nixosModule = self.nixosModules.mcp-secure-exec;
